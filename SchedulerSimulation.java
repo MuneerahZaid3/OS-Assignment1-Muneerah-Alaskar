@@ -30,7 +30,7 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
     
-    private int priority; // Feature 1: Priority of the process
+    private int priority; // Feature 1: process priority from 1 to 5
     
     //Feature 3: Track waiting time
     private long creationTime;
@@ -327,10 +327,11 @@ public class SchedulerSimulation {
         processMap.put(thread, process);
         
         // Print a message indicating the process has entered the ready queue
+        // Feature 1: show priority in the message
         System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
                           Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
                           " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
-                          Colors.RESET+" | Priority: " +Colors.BRIGHT_YELLOW + process.getPriority());
+                          Colors.RESET+" | Priority: " +Colors.BRIGHT_YELLOW + process.getPriority()+ Colors.RESET);
    
                         }
 }
