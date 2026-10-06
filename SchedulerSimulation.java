@@ -30,7 +30,7 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
 
-    private int priority; // Feature 1: process priority from 1 to 5
+    private int priority; // Feature 1: process priority from 1 to 10
 
     // Feature 3: Track waiting time
     private long creationTime;
@@ -42,7 +42,7 @@ class Process implements Runnable {
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
-        this.priority = 1 + new Random().nextInt(5); // Feature 1: Assign a priority
+        this.priority = 1 + new Random().nextInt(10); // Feature 1: Assign a priority
 
         // Feature 3: Initialize timing
         this.creationTime = System.currentTimeMillis();
