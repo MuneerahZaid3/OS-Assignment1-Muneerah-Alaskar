@@ -315,11 +315,10 @@ public class SchedulerSimulation {
         System.out.println("\nTotal context switches: " + contextSwitches); // Feature 2: display the total context switches
                                                                             
 
-        // Feature 3: display waiting time table
-        System.out.println("\nProcess Summary: ");
         for (Process p : processes) {
+            long turnaround = p.getWaitingTime() + p.getBurstTime(); // Feature 3: turnaround = waiting + burst
             System.out.println(p.getName() + " |Burst Time: " + p.getBurstTime() + "ms |Waiting Time: "
-                    + p.getWaitingTime() + "ms");
+            + p.getWaitingTime() + "ms |Turnaround Time: " + turnaround + "ms");
         }
 
     }
