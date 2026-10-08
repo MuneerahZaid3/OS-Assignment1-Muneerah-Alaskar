@@ -263,7 +263,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+Before this assignment i only know threads from the lecture, but here i used them in real code. In our code every Process is a Runnable and we make a thread from it with new Thread(process). When i call start() the thread become ready and run() starts, and join() makes the main thread wait until the process finish the quantum. sleep() is like the process is working on the CPU. The thing that surprised me is a thread cant start two times, so every time the process go back to the queue the code makes new thread.
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -271,7 +271,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+The hardest part for me was feature 3, the waiting time. First i calculated it from the creation time until now, and the numbers were too large. I did not notice that it also counts the time the process was running on the CPU. After that the table printed the same process many times and i did not know why. It was hard because there was no red error and the program run normally, but the output was wrong.
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -279,7 +279,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+I went back to the meaning of waiting time, it is only the time the process waits in the ready queue. So i subtracted the running time (burstTime - remainingTime) from the total time. For the repeated processes, i found that processMap gets a new thread every time a process goes back to the queue, so i used an array to save each process one time. I ran the program after every small change to check the output. I checked that P2 waited about 5000ms because it only waited for P1. Also when i read the README again i found i need turnaround time and priority from 1 to 10, so i fixed them.
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -287,19 +287,19 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+Most apps we use every day have threads. For example in a music app, one thread plays the song and another one handles the buttons, so the app does not freeze. The browser can open many tabs in the same time. Games also use threads for graphics, sound and playing online. Our computer works like the scheduler in this assignment, every program takes a small time on the CPU and then a context switch happens to the next one. That is why i can open the browser, music and Word together and they all work.
 
 ### Optional: What would you like to learn more about?
 
-[Any topics related to threading or operating systems that you're curious about?]
+I want to learn more about other scheduling algorithms like priority scheduling, because in our code the priority is only printed and does not change the order.
 
 ### Optional: How confident do you feel about multithreading concepts now?
 
-[Beginner / Intermediate / Confident. What do you understand well? What needs more practice?]
+Intermediate. I understand start(), join(), sleep() and the ready queue, but i need more practice with threads that run in the same time.
 
 ### Optional: Feedback on the assignment
 
-[Any comments? Was it helpful? Too easy or hard? Suggestions?]
+It was helpful because i used what we learned in real code, but setting up VS Code and Git took a lot of time.
 
 ---
 
