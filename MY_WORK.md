@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | Muneerah Zaid Alaskar |
+| **Student ID** | 446051978 |
+| **University Email** | 446051978@std.psau.edu.sa |
+| **GitHub Username** | MuneerahZaid3 |
+| **Repository Link** | https://github.com/MuneerahZaid3/OS-Assignment1-Muneerah-Alaskar |
  
 ---
 
@@ -129,81 +129,107 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October 3, 2026, 7:30 PM]
+**What I did**: write my uni id and create GitHub account.
 
 **Details**:
+- Created my GitHub account using my uni email.
+- Forked repository and renamed it OS-Assignment1-Muneerah-Alaskar.
+- Downloaded the repository into VS Code.
+- Changed the student ID on line 150 to 446051978 and committed. the changes.
+- Ran the program 18 processes with time quantum of 5000 ms.
 
-**Challenges**:
 
-**Solution**:
+**Challenges**: Upon opening the SchedulerSimulation.java file, I can not edit because VS Code displayed a message "Editor is read-only."
 
-**Time spent**:
+
+**Solution**: It became clear that i accidentally opened the file from the Git history not actual file. I closed it and reopened it from Explorer, it worked correctly.
+
+**Time spent**: 1.5 hours
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - [October 4, 2026, 12:00 PM]
+**What I did**: Feature 1,process priority.
 
 **Details**:
+- Added private int priority in class Process.
+- Each process in the constructor gets random priority.
+- Added getPriority().
+- printed priority in the ready queue.
+  
+**Challenges**: My commit did not work, it said "confing is not a git command.
 
-**Challenges**:
+**Solution**: I wrote "confing" by mistake. I wrote "config" and set my name and email, then it worked.
 
-**Solution**:
-
-**Time spent**:
+**Time spent**: 2 hours.
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 3 - [October 5, 2026, 10:00 AM]
+**What I did**:Feature 2, context switch counter.
 
 **Details**:
+- Added static int contextSwitches =0.
+- Added contextSwitches++ after processQueue.poll(), it counts every time a process gets the CPU.
+- print total, gives 36 context switches 18+15+3 .
 
-**Challenges**:
+**Challenges**: the counter line has red error,and i did not know why.
 
-**Solution**:
+**Solution**: I forgot to declare the variable, I added static int contextSwitches =0 at the top in class.
 
-**Time spent**:
+**Time spent**: 1 hour.
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 4 - [October 6, 2026, 9:30 AM]
+**What I did**:Feature 3, waiting time and summary table.
 
 **Details**:
+- Added creationTime and waitingTime in the class Process.
+- Calculated the waiting time in run() after each quantum.
+- Saved all processes in the array processes[] and print table.
 
 **Challenges**:
+- The table printed same process many times.
+- My first waiting numbers were too large.
 
 **Solution**:
+- I used array instead of processMap.
+- I subtracted the running time (burstTime - remainingTime).
 
-**Time spent**:
+**Time spent**: 2.5 hours.
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 5 - [October 6, 2026, 2:00 PM - 7:30 PM]
+**What I did**:update feature 1 and 2.
 
 **Details**:
+- I improved comments in feature 1 and 2.
+- I improved color in priority.
+- I changed priority to 1-10.
 
-**Challenges**:
+**Challenges**: when i read README in the second time , i found the priority must be 1-10.
 
-**Solution**:
+**Solution**: Changed nextInt(5) to nextInt(10) and tested again.
 
-**Time spent**:
+**Time spent**: 1 hour (small sessions between 2PM and 7:30PM).
 
 ---
 
-### Entry 6 - [Optional - Date and Time]
-**What I did**:
+### Entry 6 - [October 7, 2026, 6:00 AM]
+**What I did**: Added turnaround time in feature 3.
 
 **Details**:
+- Calculated turnaround = waitingTime +burstTime.
+- print turnaround time next to waiting time, burst time.
 
-**Challenges**:
+**Challenges**: when i read README in the second time , i found that i forgot the turnaround time.
 
-**Solution**:
+**Solution**: Calculated turnaround = waitingTime +burstTime, and ran it again.
 
-**Time spent**:
+**Time spent**: 30 minutes.
 
 ---
 
