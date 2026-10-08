@@ -319,7 +319,7 @@ It was helpful because i used what we learned in real code, but setting up VS Co
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+Process is heavy and have its own memory. Thread is light and share the memory with other threads in same process. In our code java thread run the Process by new Thread(process) in addProcessToQueue(), and all threads use same processMap and processQueue. Process need IPC to communicate but thread is not, and make thread is cheap but process is expensive.
 
 ## Question 2: Ready Queue Behavior
 
@@ -331,15 +331,20 @@ It was helpful because i used what we learned in real code, but setting up VS Co
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+When process not finish in time quantum, it give the CPU to next process and go back to end of ready queue. In my run quantum is 5000ms and P1 need 10934ms, so P1 re-queued 2 times (5000, 5000, 934). This is fair because no process keep the CPU long time, P2 finished in first round.
 
 Example from my output:
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
+ ➕ P1 added to ready queue │ Burst time: 10934ms | Priority: 10
+     Remaining time: 5934ms
+ ➕ P1 added to ready queue │ Burst time: 10934ms | Priority: 10
+     Remaining time: 934ms
+ ➕ P1 added to ready queue │ Burst time: 10934ms | Priority: 10
+     ✓ P1 finished execution!
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+After every quantum P1 still have time, so addProcessToQueue() add it again in the end. In third time it need only 934ms so it finished. There is 2 "added to ready queue" lines after the first one.
 
 ## Question 3: Thread Lifecycle
 
@@ -349,15 +354,16 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: when new Thread(process) in addProcessToQueue(), thread created but not start.
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: when currentThread.start() called, thread ready to run.
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: when thread get the CPU and run() print "P1 executing quantum".
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: when Thread.sleep() in run(), and main thread wait in currentThread.join().
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: when run() finish after the quantum.
+
 
 ## Question 4: Real-World Applications
 
@@ -367,32 +373,33 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
+### Example 1 (operating-system level): Time sharing in computer
 
 **Description**:
-[Describe the real-world scenario.]
+When i open browser, music and Word, OS give every program small time on CPU then context switch to next one. So it look like all programs run in same time.
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+It is fair because every program take its turn, and fast so i dont feel delay.
 
-### Example 2: [Name of application/scenario]
+### Example 2: web server
 
 **Description**:
-[Describe the real-world scenario or application.]
+Web server make thread for every client request. Every thread take small time on CPU so all clients get served.
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+It is fair because big request cant make other clients wait, like P2 finished early in my run.
+
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1. Process not finish in quantum go back to end of ready queue.
+2. start() make thread runnable, sleep() make it wait, join() make main thread wait.
+3. Thread is light and share memory so it cheaper than process.
 
 **Concepts I need to study more:**
-1.
-2.
+1. Synchronization and race conditions.
+2. Thread models one-to-one, many-to-one and many-to-many.
 
 ---
 
