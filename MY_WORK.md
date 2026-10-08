@@ -237,13 +237,13 @@
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: around 15 hours.
 
-**Most challenging part**:
+**Most challenging part**: Feature 3, the waiting time numbers was wrong and the table print same process many times.
 
-**Most interesting learning**:
+**Most interesting learning**: A thread cant start two times, so the code make new thread every time process go back to queue.
 
-**What I would do differently next time**:
+**What I would do differently next time**: Read the README more carefully from the start. I missed turnaround time and priority 1-10 the first time, i fixed them later.
 
 ---
 
